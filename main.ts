@@ -24,10 +24,18 @@ async function getLoadedSpreadsheetDocument() {
   }
 }
 
+async function getRawImageUrl(url: string): string {
+  if (url.startsWith('https://drive.google.com/file/d/')) {
+    return url.split('/')[5]
+  }
+
+  return url
+}
+
 async function downloadImages(images: [string, string][], outputPath: string) {
   await mkdir(outputPath, { recursive: true })
   for (const entry of images) {
-    const { data: buffer } = await axios.get<Buffer>(entry[1], {
+    const { data: buffer } = await axios.get<Buffer>(getRawImageUrl(entry[1]), {
       responseType: 'arraybuffer'
     })
     await writeFile(path.join(outputPath, `${entry[0]}.png`), buffer)
