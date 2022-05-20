@@ -26,7 +26,7 @@ async function getLoadedSpreadsheetDocument() {
 
 function getRawImageUrl(url: string): string {
   if (url.startsWith('https://drive.google.com/file/d/')) {
-    return url.split('/')[5]
+    return `https://drive.google.com/uc?export=download&id=${url.split('/')[5]}`
   }
 
   return url
