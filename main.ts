@@ -12,7 +12,7 @@ async function getLoadedSpreadsheetDocument() {
 
   if (!API_KEY) return null
 
-  const SPREADSHEET_ID = '1DNPNGq8N6XimfuLEjv2Qzue4IiCD0kKfPvBJbr2CItY'
+  const SPREADSHEET_ID = '1mioOkTnkXUCuMqQN_07Q-ebB_wHxSGrsozMNTSJfby4'
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID)
   doc.useApiKey(API_KEY)
   try {
